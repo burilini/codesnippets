@@ -1,0 +1,64 @@
+Move image with arrow keys
+
+<script language='JavaScript' type='text/JavaScript'>
+<!--
+var dir_h='right';
+var dir_v='down';
+function reset1(){
+clearTimeout(my_time);
+document.getElementById('i1').style.left= "500px";
+document.getElementById('i1').style.top= "100px";
+document.getElementById("msg").innerHTML="";
+}
+
+function disp(dir){
+var step=2; // to  Change speed change this step value
+// Collect the present x & y coordinate of the image
+var y=document.getElementById('i1').offsetTop;
+var x=document.getElementById('i1').offsetLeft;
+
+switch (dir) {
+case 'D':
+		if( y <500){y= y + step;}
+		break;
+case 'L':
+     	if( x >100){x= x - step;}
+		break;
+case 'R':
+     	if( x <900){x= x + step;}
+		break;
+case 'T':
+		if( y >100){y= y - step;}
+		break;
+
+}
+// Now move to new position of x & y value
+document.getElementById('i1').style.top= y + "px"; // vertical movment
+document.getElementById('i1').style.left= x + "px"; // horizontal  movment
+//Display the coordinates at X & Y position. 
+document.getElementById("msg").innerHTML="X: " + x  + " Y : " + y
+
+//////////////////////
+}
+// Checking which arrow key is pressed
+document.onkeydown = function() {
+    switch (window.event.keyCode) {
+        case 37:
+            disp('L') // execute a function by passing parameter 
+            break;
+        case 38:
+            disp('T')
+            break;
+        case 39:
+            disp('R')
+            break;
+        case 40:
+            disp('D')   
+//alert('down key');     
+            break;
+    }
+};
+
+
+//-->
+</script>
